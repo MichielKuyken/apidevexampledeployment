@@ -9,7 +9,7 @@ app = FastAPI()
 async def get_random_percentage():
     return {'percentage': randint(0, 100)}
 
-@randomizer.get("/percentage/{lower_limit}/{upper_limit}")
+@app.get("/percentage/{lower_limit}/{upper_limit}")
 async def limit(lower_limit: int, upper_limit: int):
     if lower_limit > upper_limit:
         return {"error": "The upper limit must be bigger then the lower limit!",
